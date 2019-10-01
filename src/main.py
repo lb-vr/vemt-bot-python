@@ -64,4 +64,6 @@ if __name__ == "__main__":
         logging.Logger().fatal('Token string is blank.')
         exit(-1)
 
+    print(tkn)
+
     client.run(tkn)

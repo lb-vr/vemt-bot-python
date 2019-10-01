@@ -36,11 +36,13 @@ async def initializeServer(client: discord.Client, message: discord.Message):
         logger.info('Guild = %s (%s)', guild.name, hex(guild.id))
 
         # check already exist
-        for r in roles:
-            if r.name == ServerSettings.getBotAdminRoleName:
-                log_messages.append(Message.role_already_exist.format(r.name))
+        for r in guild.roles:
+            if r.name == ServerSettings.getBotAdminRoleName():
+                log_messages.append(str(Message.role_already_exist).format(r.name))
                 raise AlreadyInitializedError('Role has already existed.', r.name)
-        for
+        for cat in guild.categories:
+            if cat.name == ServerSettings.getBotCategoryName():
+                log_messages.append(Message.category_already_exist)
 
         # variables
         categories_list: List[discord.CategoryChannel] = guild.categories
