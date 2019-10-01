@@ -37,11 +37,11 @@ async def initializeServer(client: discord.Client, message: discord.Message):
         # check already exist
         for r in guild.roles:
             if r.name == ServerSettings.getBotAdminRoleName():
-                log_messages.append(_("Role `%(name)s' already exists.") % {'name': r.name})
+                log_messages.append(_("Role `%(name)s` already exists.") % {'name': r.name})
                 raise AlreadyInitializedError('Role already exists.', r.name)
         for cat in guild.categories:
             if cat.name == ServerSettings.getBotCategoryName():
-                log_messages.append(_("Category `%(name)s' already exists.") % {'name': cat.name})
+                log_messages.append(_("Category `%(name)s` already exists.") % {'name': cat.name})
 
         # variables
         categories_list: List[discord.CategoryChannel] = guild.categories
@@ -57,7 +57,7 @@ async def initializeServer(client: discord.Client, message: discord.Message):
                 name=ServerSettings.getBotAdminRoleName(),
                 colour=ServerSettings.getBotAdminRoleColour())
             log_messages.append(
-                _("Role `%(name)s' has been created.") % {'name': ServerSettings.getBotAdminRoleName()}
+                _("Role `%(name)s` has been created.") % {'name': ServerSettings.getBotAdminRoleName()}
             )
 
         # change 'vemt-bot' role color
@@ -72,7 +72,7 @@ async def initializeServer(client: discord.Client, message: discord.Message):
             await guild.create_category(kBotCategoryName)
             logger.info('Category %s has been created.', kBotCategoryName)
             log_messages.append(
-                _("Category `%(name)s' has been created.") % {'name': kBotCategoryName}
+                _("Category `%(name)s` has been created.") % {'name': kBotCategoryName}
             )
         # get created 'bot' category
         bot_category = None
@@ -96,7 +96,7 @@ async def initializeServer(client: discord.Client, message: discord.Message):
                 await bot_category.create_text_channel(target)
                 logger.info('Created %s channel.', target)
                 log_messages.append(
-                    _("Text chat %(name)s' has been created.") % {'name': format(target)}
+                    _("Text chat `%(name)s` has been created.") % {'name': format(target)}
                 )
 
     except discord.Forbidden as e:

@@ -13,9 +13,7 @@ from testfunc import testfunc
 
 translater = gettext.translation(
     'vemt',
-    localedir=os.path.abspath(os.path.join(
-        os.path.dirname(os.path.dirname(__file__)), 'locale')),
-    languages=['ja_JP'],
+    localedir=os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'locale')),
     fallback=True
 )
 translater.install()
@@ -73,7 +71,7 @@ async def on_message(message):
                 await initialize.initializeServer(client, message)
             else:
                 await message.channel.send(
-                    _("No command `%(command)s'") % {'command': prms[0]}
+                    _("No command `%(command)s`.") % {'command': prms[0]}
                 )
 
 if __name__ == "__main__":

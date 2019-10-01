@@ -11,7 +11,7 @@ async def cleanDefault(guild: discord.Guild):
 async def clearRoles(guild: discord.Guild):
     for role in guild.roles:
         if role.name != 'developper' and not role.is_default():
-            print(_('Delete role %(role)s') % {'role': role.name}, end='')
+            print(_('Delete role `%(role)s`') % {'role': role.name}, end='')
             try:
                 await role.delete()
                 print(_('... Succeed.'))
@@ -30,7 +30,7 @@ async def clearChannel(guild: discord.Guild):
     channels = guild.channels
     for ch in channels:
         if ch.name in kBotTextChannelNames and ch.category.name == kBotCategoryName:
-            print(_('Delete channel %(name)s') % {'name': ch.name}, end='')
+            print(_('Delete channel `%(name)s`') % {'name': ch.name}, end='')
             try:
                 await ch.delete()
                 print(_('... Succeed.'))
@@ -40,7 +40,7 @@ async def clearChannel(guild: discord.Guild):
     categories = guild.categories
     for cat in categories:
         if cat.name == kBotCategoryName:
-            print(_('Delete category %(name)s') % {'name': cat.name}, end='')
+            print(_('Delete category `%(name)s`') % {'name': cat.name}, end='')
             try:
                 await cat.delete()
                 print(_('... Succeed.'))
